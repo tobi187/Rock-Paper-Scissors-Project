@@ -33,7 +33,7 @@ class AIPlayer(Player):
 
 class RepetitivePlayer(Player):
     def move(self):
-        return 'ROCK'                 
+        return 'ROCK'
 
 class RoundPlayer(Player):
     def move(self):
@@ -59,36 +59,37 @@ class MemoryPlayer(Player):
         self.human_player_memory[their_move] += 1
 
 class Game:
-        def __init__(self, p1, p2):
-            self.p1 = p1
-            self.p2 = p2
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
 
-        def play_round(self):
-            move1 = self.p1.move()
-            move2 = self.p2.move()
-            print(f"Player1: {move1} Player 2: {move2}")
-            self.p1.learn(move1, move2)
-            self.p2.learn(move2, move1)
+    def play_round(self):
+        move1 = self.p1.move()
+        move2 = self.p2.move()
+        print(f"Player1: {move1} Player 2: {move2}")
+        self.p1.learn(move1, move2)
+        self.p2.learn(move2, move1)
 
-        def play_game(self):
-            print("GAME BEGIN")
-            for round in range(3):
-                print(f"ROUND {round}:")
-                self.play_round()
-            print("GAME SET AND MATCH")
-            self.p1.score = 0
-            self.p2.score = 0
+    def play_game(self):
+        print("GAME BEGIN")
+        for round in range(3):
+            print(f"ROUND {round}:")
+            self.play_round()
+        print("GAME SET AND MATCH")
+        self.p1.score = 0
+        self.p2.score = 0
 
-        def sequences(self):
+    def sequences(self):
 
-            user_input= input('How many sequences would you like to play')
-            try:
-                rounds = int(user_input)
-            except ValueError:
-                print('This is not a legitmate number')
-        elif self.number_sequences.lower() == 'exit':
+        user_input= input('How many sequences would you like to play')
+        try:
+        rounds = int(user_input)
+        except ValueError:
+        print('This is not a legitmate number')
+
+    if self.number_sequences.lower() == 'exit':
             exit()
 
     if __name__ == '__main__':
         game = Game(Player(), Player())
-        game.play_game
+        game.play_game()
