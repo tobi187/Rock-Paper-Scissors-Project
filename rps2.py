@@ -83,13 +83,13 @@ class Game:
 
         user_input= input('How many sequences would you like to play')
         try:
-        rounds = int(user_input)
+            rounds = int(user_input)
         except ValueError:
-        print('This is not a legitmate number')
+            print('This is not a legitmate number')
 
-    if self.number_sequences.lower() == 'exit':
-            exit()
+        if self.number_sequences.lower() == 'exit':
+                exit()
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
         game = Game(Player(), Player())
         game.play_game()
