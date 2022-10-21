@@ -21,7 +21,7 @@ class RealPlayer(Player):
 
     def move(self):
         while True:
-            move = user_input(
+            move = user.input(
             'PICK A MOVE: (ROCK, PAPER, SCISSORS \n').lower()
             if move in moves:
                 return move
@@ -48,11 +48,11 @@ class MemoryPlayer(Player):
             self.human_player_memory[move] = 0
 
     def move(self):
-        if p1_move =='ROCK':
+        if p1.move =='ROCK':
             return 'PAPER'
-        if p1_move =='SCISSORS':
+        if p1.move =='SCISSORS':
             return 'ROCK'
-        if p1_move == 'PAPER':
+        if p1.move == 'PAPER':
             return 'rock'
 
     def learn(self, my_move, their_move):
